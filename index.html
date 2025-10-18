@@ -1,31 +1,329 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amorfien</title>
+    <title>Pavel Grigorev - iOS App Developer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background-color: #4a6cf7;
+            color: white;
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+        
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4a6cf7, #6a11cb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .avatar-initials {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a6cf7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text a {
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .apps-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #4a6cf7;
+            padding-bottom: 8px;
+        }
+        
+        .app-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .app-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
             color: #333;
         }
-        .email {
-            font-size: 18px;
-            color: #0066cc;
-            text-decoration: none;
+        
+        .app-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #eef2ff;
         }
-        .email:hover {
-            text-decoration: underline;
+        
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        
+        .app-name {
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .name {
+                font-size: 26px;
+            }
+            
+            .app-links {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h3>Pavel Grigorev</h3>
-    <p>Contact: <a href="mailto:amorfien@gmail.com" class="email">amorfien@gmail.com</a></p>
-    <p>My Apps: <a href="https://apps.apple.com/us/developer/pavel-grigorev/id1801553182">AppStore</a></p>
+    <div class="container">
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        
+        <div class="profile-section">
+            <div class="avatar">
+                <div class="avatar-initials">PG</div>
+            </div>
+            <h1 class="name">Pavel Grigorev</h1>
+            <p class="title">iOS App Developer</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="icon">@</div>
+                <div class="contact-text">
+                    <strong>Email:</strong> <a href="mailto:amorfien@gmail.com">amorfien@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="icon">📱</div>
+                <div class="contact-text">
+                    <strong>AppStore:</strong> <a href="https://apps.apple.com/us/developer/pavel-grigorev/id1801553182" target="_blank">View all my apps</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="apps-section">
+            <h2 class="section-title">My Applications</h2>
+            <div class="app-links">
+                <a href="actograph_en.html" class="app-link" id="actograph-link">
+                     <img src="img/logo_actograph.png" alt="Actograph" class="app-icon">
+                    <div class="app-name">actograph</div>
+                </a>
+                <a href="xstitch_en.html" class="app-link" id="xstitch-link">
+                     <img src="img/logo_xstitch.png" alt="xStitch" class="app-icon">
+                    <div class="app-name">xstitch</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const nameElement = document.querySelector('.name');
+            const appLinks = {
+                actograph: document.getElementById('actograph-link'),
+                xstitch: document.getElementById('xstitch-link')
+            };
+            
+            // Тексты для разных языков
+            const translations = {
+                en: {
+                    name: "Pavel Grigorev",
+                    title: "iOS App Developer",
+                    email: "Email:",
+                    appstore: "AppStore:",
+                    myApps: "My Applications",
+                    viewApps: "View all my apps",
+                    actograph: "ActoGraph",
+                    xstitch: "xStitch"
+                },
+                ru: {
+                    name: "Павел Григорьев",
+                    title: "Разработчик iOS приложений",
+                    email: "Эл. почта:",
+                    appstore: "AppStore:",
+                    myApps: "Мои приложения",
+                    viewApps: "Все мои приложения",
+                    actograph: "ActoGraph",
+                    xstitch: "xStitch"
+                }
+            };
+            
+            // Функция смены языка
+            function switchLanguage(lang) {
+                // Обновляем активную кнопку
+                langButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                
+                // Обновляем тексты
+                const t = translations[lang];
+                nameElement.textContent = t.name;
+                document.querySelector('.title').textContent = t.title;
+                document.querySelector('.contact-item:nth-child(1) strong').textContent = t.email;
+                document.querySelector('.contact-item:nth-child(2) strong').textContent = t.appstore;
+                document.querySelector('.section-title').textContent = t.myApps;
+                document.querySelector('.contact-item:nth-child(2) a').textContent = t.viewApps;
+                
+                // Обновляем названия приложений
+                document.querySelector('#actograph-link .app-name').textContent = t.actograph;
+                document.querySelector('#xstitch-link .app-name').textContent = t.xstitch;
+                
+                // Обновляем ссылки на лендинги
+                appLinks.actograph.href = `actograph_${lang}.html`;
+                appLinks.xstitch.href = `xstitch_${lang}.html`;
+            }
+            
+            // Обработчики событий для кнопок переключения языка
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+            
+            // Инициализация с английским языком
+            switchLanguage('en');
+        });
+    </script>
 </body>
 </html>
