@@ -248,9 +248,9 @@
                      <img src="img/logo_actograph.png" alt="Actograph" class="app-icon">
                     <div class="app-name">actograph</div>
                 </a>
-                <a href="xstitch_en.html" class="app-link" id="xstitch-link">
-                     <img src="img/logo_xstitch.png" alt="xStitch" class="app-icon">
-                    <div class="app-name">xstitch</div>
+                <a href="pixel2stitch_en.html" class="app-link" id="pixel2stitch-link">
+                     <img src="img/logo_pixel2stitch.png" alt="Pixel2Stitch" class="app-icon">
+                    <div class="app-name">pixel2stitch</div>
                 </a>
             </div>
         </div>
@@ -262,7 +262,7 @@
             const nameElement = document.querySelector('.name');
             const appLinks = {
                 actograph: document.getElementById('actograph-link'),
-                xstitch: document.getElementById('xstitch-link')
+                pixel2stitch: document.getElementById('pixel2stitch-link')
             };
             
             // Тексты для разных языков
@@ -275,7 +275,7 @@
                     myApps: "My Applications",
                     viewApps: "View all my apps",
                     actograph: "ActoGraph",
-                    xstitch: "xStitch"
+                    pixel2stitch: "Pixel2Stitch"
                 },
                 ru: {
                     name: "Павел Григорьев",
@@ -285,7 +285,7 @@
                     myApps: "Мои приложения",
                     viewApps: "Все мои приложения",
                     actograph: "ActoGraph",
-                    xstitch: "xStitch"
+                    pixel2stitch: "Pixel2Stitch"
                 }
             };
             
@@ -307,11 +307,11 @@
                 
                 // Обновляем названия приложений
                 document.querySelector('#actograph-link .app-name').textContent = t.actograph;
-                document.querySelector('#xstitch-link .app-name').textContent = t.xstitch;
+                document.querySelector('#pixel2stitch-link .app-name').textContent = t.pixel2stitch;
                 
                 // Обновляем ссылки на лендинги
                 appLinks.actograph.href = `actograph_${lang}.html`;
-                appLinks.xstitch.href = `xstitch_${lang}.html`;
+                appLinks.pixel2stitch.href = `pixel2stitch_${lang}.html`;
             }
             
             // Обработчики событий для кнопок переключения языка
