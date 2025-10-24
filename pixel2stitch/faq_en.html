@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - pixel2stitch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .faq-content {
+            padding: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question::after {
+            content: "▼";
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .answer {
+            padding: 20px;
+            background: white;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .answer ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .answer li {
+            margin-bottom: 5px;
+        }
+
+        .contact-note {
+            background: #e8f4fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .faq-content {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 15px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="https://amorfien.github.io/pixel2stitch_en" class="home-button">
+                🏠 Home
+            </a>
+            <h1>📝 FAQ</h1>
+            <p>Frequently Asked Questions about pixel2stitch</p>
+        </div>
+
+        <div class="faq-content">
+
+            <div class="faq-item" id="compatibility">
+                <div class="question">How to achieve the best generation results?</div>
+                <div class="answer">
+                    <p>Use third-party graphics editors for images before uploading them to pixel2stitch.
+                        Perform cropping, add contrast and vibrancy to colors. Remove the background if
+                        necessary.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="compatibility">
+                <div class="question">Is there compatibility with other manufacturers' editors?</div>
+                <div class="answer">
+                    <p>No, at the moment you cannot use third-party editors to work with schemes
+                        generated in pixel2stitch.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="processing">
+                <div class="question">Does image processing happen on my device?</div>
+                <div class="answer">
+                    <p>Yes, your images and schemes are not transmitted anywhere, they are processed and stored locally on your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="offline">
+                <div class="question">Does pixel2stitch work without internet access?</div>
+                <div class="answer">
+                    <p>Yes, it works. But for generating new schemes, the application may ask you to watch an
+                        advertisement, which requires an internet connection.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="ads">
+                <div class="question">What should I do if I cannot watch ads?</div>
+                <div class="answer">
+                    <p>In this case, the generation counter will reset automatically after one week. You can also reset the counter
+                        by deleting the application and reinstalling it, but in this case you will lose all your saved
+                        schemes.</p>
+                    <div class="contact-note">
+                        💡 <strong>If your country has difficulties with viewing built-in ads</strong> -
+                        contact the developer and describe your problem.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="compatibility">
+                <div class="question">I have ideas and suggestions for the app's functionality. What should I do?</div>
+                <div class="answer">
+                    <p>Contact us directly and write about your comments and suggestions at pixel2stitchapp@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="compatibility">
+                <div class="question">How can I support the project?</div>
+                <div class="answer">
+                    <p>The best way to support the project is to tell your friends about it.
+                        And be sure to send your finished works to our email - this will give us even more motivation for development!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+
+                document.querySelectorAll('.answer').forEach(a => {
+                    a.style.display = 'none';
+                    a.previousElementSibling.style.background = '#f8f9fa';
+                    a.previousElementSibling.style.color = '#2c3e50';
+                });
+
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                    question.style.background = '#667eea';
+                    question.style.color = 'white';
+                }
+            });
+        });
+
+        document.querySelectorAll('.answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
