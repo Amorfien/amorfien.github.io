@@ -83,6 +83,10 @@
             transition: transform 0.3s ease;
         }
 
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+
         .answer {
             padding: 20px;
             background: white;
@@ -162,8 +166,10 @@
             <div class="faq-item" id="compatibility">
                 <div class="question">Comment obtenir les meilleurs résultats de génération ?</div>
                 <div class="answer">
-                    <p>Utilisez des éditeurs graphiques tiers pour les images avant de les télécharger dans pixel2stitch.
-                        Effectuez un recadrage, ajoutez du contraste et de la vivacité aux couleurs. Supprimez l'arrière-plan si
+                    <p>Utilisez des éditeurs graphiques tiers pour les images avant de les télécharger dans
+                        pixel2stitch.
+                        Effectuez un recadrage, ajoutez du contraste et de la vivacité aux couleurs. Supprimez
+                        l'arrière-plan si
                         nécessaire.</p>
                 </div>
             </div>
@@ -171,7 +177,8 @@
             <div class="faq-item" id="compatibility">
                 <div class="question">Y a-t-il une compatibilité avec les éditeurs d'autres fabricants ?</div>
                 <div class="answer">
-                    <p>Non, pour le moment, vous ne pouvez pas utiliser d'éditeurs tiers pour travailler avec les schémas
+                    <p>Non, pour le moment, vous ne pouvez pas utiliser d'éditeurs tiers pour travailler avec les
+                        schémas
                         générés dans pixel2stitch.</p>
                 </div>
             </div>
@@ -179,14 +186,16 @@
             <div class="faq-item" id="processing">
                 <div class="question">Le traitement des images se fait-il sur mon appareil ?</div>
                 <div class="answer">
-                    <p>Oui, vos images et schémas ne sont transmis nulle part, ils sont traités et stockés localement sur votre appareil.</p>
+                    <p>Oui, vos images et schémas ne sont transmis nulle part, ils sont traités et stockés localement
+                        sur votre appareil.</p>
                 </div>
             </div>
 
             <div class="faq-item" id="offline">
                 <div class="question">pixel2stitch fonctionne-t-il sans accès à Internet ?</div>
                 <div class="answer">
-                    <p>Oui, il fonctionne. Mais pour générer de nouveaux schémas, l'application peut vous demander de regarder une
+                    <p>Oui, il fonctionne. Mais pour générer de nouveaux schémas, l'application peut vous demander de
+                        regarder une
                         publicité, ce qui nécessite une connexion Internet.</p>
                 </div>
             </div>
@@ -194,20 +203,24 @@
             <div class="faq-item" id="ads">
                 <div class="question">Que faire si je ne peux pas regarder de publicités ?</div>
                 <div class="answer">
-                    <p>Dans ce cas, le compteur de générations se réinitialisera automatiquement après une semaine. Vous pouvez également réinitialiser le compteur
+                    <p>Dans ce cas, le compteur de générations se réinitialisera automatiquement après une semaine. Vous
+                        pouvez également réinitialiser le compteur
                         en supprimant l'application et en la réinstallant, mais dans ce cas, vous perdrez tous vos
                         schémas enregistrés.</p>
                     <div class="contact-note">
-                        💡 <strong>Si votre pays rencontre des difficultés pour visionner la publicité intégrée</strong> -
+                        💡 <strong>Si votre pays rencontre des difficultés pour visionner la publicité intégrée</strong>
+                        -
                         contactez le développeur et décrivez votre problème.
                     </div>
                 </div>
             </div>
 
             <div class="faq-item" id="compatibility">
-                <div class="question">J'ai des idées et des suggestions pour les fonctionnalités de l'application. Que faire ?</div>
+                <div class="question">J'ai des idées et des suggestions pour les fonctionnalités de l'application. Que
+                    faire ?</div>
                 <div class="answer">
-                    <p>Contactez-nous directement et écrivez vos commentaires et suggestions à pixel2stitchapp@gmail.com</p>
+                    <p>Contactez-nous directement et écrivez vos commentaires et suggestions à pixel2stitchapp@gmail.com
+                    </p>
                 </div>
             </div>
 
@@ -215,7 +228,8 @@
                 <div class="question">Comment puis-je soutenir le projet ?</div>
                 <div class="answer">
                     <p>La meilleure façon de soutenir le projet est d'en parler à vos connaissances.
-                        Et n'oubliez pas de nous envoyer vos travaux terminés par e-mail - cela nous motivera encore plus pour le développement !</p>
+                        Et n'oubliez pas de nous envoyer vos travaux terminés par e-mail - cela nous motivera encore
+                        plus pour le développement !</p>
                 </div>
             </div>
 
@@ -228,14 +242,19 @@
                 const answer = question.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
 
+                document.querySelectorAll('.question').forEach(q => {
+                    q.classList.remove('active');
+                    q.style.background = '#f8f9fa';
+                    q.style.color = '#2c3e50';
+                });
+
                 document.querySelectorAll('.answer').forEach(a => {
                     a.style.display = 'none';
-                    a.previousElementSibling.style.background = '#f8f9fa';
-                    a.previousElementSibling.style.color = '#2c3e50';
                 });
 
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    question.classList.add('active');
                     question.style.background = '#667eea';
                     question.style.color = 'white';
                 }

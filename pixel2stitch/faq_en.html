@@ -83,6 +83,10 @@
             transition: transform 0.3s ease;
         }
 
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+
         .answer {
             padding: 20px;
             background: white;
@@ -179,7 +183,8 @@
             <div class="faq-item" id="processing">
                 <div class="question">Does image processing happen on my device?</div>
                 <div class="answer">
-                    <p>Yes, your images and schemes are not transmitted anywhere, they are processed and stored locally on your device.</p>
+                    <p>Yes, your images and schemes are not transmitted anywhere, they are processed and stored locally
+                        on your device.</p>
                 </div>
             </div>
 
@@ -194,7 +199,8 @@
             <div class="faq-item" id="ads">
                 <div class="question">What should I do if I cannot watch ads?</div>
                 <div class="answer">
-                    <p>In this case, the generation counter will reset automatically after one week. You can also reset the counter
+                    <p>In this case, the generation counter will reset automatically after one week. You can also reset
+                        the counter
                         by deleting the application and reinstalling it, but in this case you will lose all your saved
                         schemes.</p>
                     <div class="contact-note">
@@ -207,7 +213,8 @@
             <div class="faq-item" id="compatibility">
                 <div class="question">I have ideas and suggestions for the app's functionality. What should I do?</div>
                 <div class="answer">
-                    <p>Contact us directly and write about your comments and suggestions at pixel2stitchapp@gmail.com</p>
+                    <p>Contact us directly and write about your comments and suggestions at pixel2stitchapp@gmail.com
+                    </p>
                 </div>
             </div>
 
@@ -215,7 +222,8 @@
                 <div class="question">How can I support the project?</div>
                 <div class="answer">
                     <p>The best way to support the project is to tell your friends about it.
-                        And be sure to send your finished works to our email - this will give us even more motivation for development!</p>
+                        And be sure to send your finished works to our email - this will give us even more motivation
+                        for development!</p>
                 </div>
             </div>
 
@@ -228,14 +236,19 @@
                 const answer = question.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
 
+                document.querySelectorAll('.question').forEach(q => {
+                    q.classList.remove('active');
+                    q.style.background = '#f8f9fa';
+                    q.style.color = '#2c3e50';
+                });
+
                 document.querySelectorAll('.answer').forEach(a => {
                     a.style.display = 'none';
-                    a.previousElementSibling.style.background = '#f8f9fa';
-                    a.previousElementSibling.style.color = '#2c3e50';
                 });
 
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    question.classList.add('active');
                     question.style.background = '#667eea';
                     question.style.color = 'white';
                 }

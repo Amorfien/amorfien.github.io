@@ -83,6 +83,10 @@
             transition: transform 0.3s ease;
         }
 
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+
         .answer {
             padding: 20px;
             background: white;
@@ -179,7 +183,8 @@
             <div class="faq-item" id="processing">
                 <div class="question">¿El procesamiento de imágenes ocurre en mi dispositivo?</div>
                 <div class="answer">
-                    <p>Sí, sus imágenes y esquemas no se transmiten a ningún lugar, se procesan y almacenan localmente en su dispositivo.</p>
+                    <p>Sí, sus imágenes y esquemas no se transmiten a ningún lugar, se procesan y almacenan localmente
+                        en su dispositivo.</p>
                 </div>
             </div>
 
@@ -194,7 +199,8 @@
             <div class="faq-item" id="ads">
                 <div class="question">¿Qué debo hacer si no puedo ver anuncios?</div>
                 <div class="answer">
-                    <p>En este caso, el contador de generaciones se reiniciará automáticamente después de una semana. También puede reiniciar el contador
+                    <p>En este caso, el contador de generaciones se reiniciará automáticamente después de una semana.
+                        También puede reiniciar el contador
                         eliminando la aplicación y reinstalándola, pero en este caso perderá todos sus
                         esquemas guardados.</p>
                     <div class="contact-note">
@@ -205,7 +211,8 @@
             </div>
 
             <div class="faq-item" id="compatibility">
-                <div class="question">Tengo ideas y sugerencias para la funcionalidad de la aplicación. ¿Qué debo hacer?</div>
+                <div class="question">Tengo ideas y sugerencias para la funcionalidad de la aplicación. ¿Qué debo hacer?
+                </div>
                 <div class="answer">
                     <p>Contáctenos directamente y escriba sus comentarios y sugerencias a pixel2stitchapp@gmail.com</p>
                 </div>
@@ -215,7 +222,8 @@
                 <div class="question">¿Cómo puedo apoyar el proyecto?</div>
                 <div class="answer">
                     <p>La mejor manera de apoyar el proyecto es contárselo a sus conocidos.
-                        ¡Y asegúrese de enviarnos sus trabajos terminados a nuestro correo electrónico - esto nos dará aún más motivación para el desarrollo!</p>
+                        ¡Y asegúrese de enviarnos sus trabajos terminados a nuestro correo electrónico - esto nos dará
+                        aún más motivación para el desarrollo!</p>
                 </div>
             </div>
 
@@ -228,14 +236,19 @@
                 const answer = question.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
 
+                document.querySelectorAll('.question').forEach(q => {
+                    q.classList.remove('active');
+                    q.style.background = '#f8f9fa';
+                    q.style.color = '#2c3e50';
+                });
+
                 document.querySelectorAll('.answer').forEach(a => {
                     a.style.display = 'none';
-                    a.previousElementSibling.style.background = '#f8f9fa';
-                    a.previousElementSibling.style.color = '#2c3e50';
                 });
 
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    question.classList.add('active');
                     question.style.background = '#667eea';
                     question.style.color = 'white';
                 }

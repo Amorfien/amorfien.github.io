@@ -83,6 +83,10 @@
             transition: transform 0.3s ease;
         }
 
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+
         .answer {
             padding: 20px;
             background: white;
@@ -179,7 +183,8 @@
             <div class="faq-item" id="processing">
                 <div class="question">O processamento de imagens ocorre no meu dispositivo?</div>
                 <div class="answer">
-                    <p>Sim, as suas imagens e esquemas não são transmitidos para nenhum local, são processados e armazenados localmente no seu dispositivo.</p>
+                    <p>Sim, as suas imagens e esquemas não são transmitidos para nenhum local, são processados e
+                        armazenados localmente no seu dispositivo.</p>
                 </div>
             </div>
 
@@ -194,20 +199,24 @@
             <div class="faq-item" id="ads">
                 <div class="question">O que devo fazer se não conseguir visualizar anúncios?</div>
                 <div class="answer">
-                    <p>Nesse caso, o contador de gerações será reiniciado automaticamente após uma semana. Também pode reiniciar o contador
+                    <p>Nesse caso, o contador de gerações será reiniciado automaticamente após uma semana. Também pode
+                        reiniciar o contador
                         eliminando a aplicação e reinstalando-a, mas nesse caso perderá todos os seus
                         esquemas guardados.</p>
                     <div class="contact-note">
-                        💡 <strong>Se no seu país existirem dificuldades em visualizar a publicidade integrada</strong> -
+                        💡 <strong>Se no seu país existirem dificuldades em visualizar a publicidade integrada</strong>
+                        -
                         contacte o desenvolvedor e descreva o seu problema.
                     </div>
                 </div>
             </div>
 
             <div class="faq-item" id="compatibility">
-                <div class="question">Tenho ideias e sugestões para a funcionalidade da aplicação. O que devo fazer?</div>
+                <div class="question">Tenho ideias e sugestões para a funcionalidade da aplicação. O que devo fazer?
+                </div>
                 <div class="answer">
-                    <p>Contacte-nos diretamente e escreva os seus comentários e sugestões para pixel2stitchapp@gmail.com</p>
+                    <p>Contacte-nos diretamente e escreva os seus comentários e sugestões para pixel2stitchapp@gmail.com
+                    </p>
                 </div>
             </div>
 
@@ -215,7 +224,8 @@
                 <div class="question">Como posso apoiar o projeto?</div>
                 <div class="answer">
                     <p>A melhor forma de apoiar o projeto é contar aos seus conhecidos sobre ele.
-                        E não se esqueça de enviar os seus trabalhos concluídos para o nosso email - isso dar-nos-á ainda mais motivação para o desenvolvimento!</p>
+                        E não se esqueça de enviar os seus trabalhos concluídos para o nosso email - isso dar-nos-á
+                        ainda mais motivação para o desenvolvimento!</p>
                 </div>
             </div>
 
@@ -228,14 +238,19 @@
                 const answer = question.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
 
+                document.querySelectorAll('.question').forEach(q => {
+                    q.classList.remove('active');
+                    q.style.background = '#f8f9fa';
+                    q.style.color = '#2c3e50';
+                });
+
                 document.querySelectorAll('.answer').forEach(a => {
                     a.style.display = 'none';
-                    a.previousElementSibling.style.background = '#f8f9fa';
-                    a.previousElementSibling.style.color = '#2c3e50';
                 });
 
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    question.classList.add('active');
                     question.style.background = '#667eea';
                     question.style.color = 'white';
                 }

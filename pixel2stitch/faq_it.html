@@ -83,6 +83,10 @@
             transition: transform 0.3s ease;
         }
 
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+
         .answer {
             padding: 20px;
             background: white;
@@ -179,7 +183,8 @@
             <div class="faq-item" id="processing">
                 <div class="question">L'elaborazione delle immagini avviene sul mio dispositivo?</div>
                 <div class="answer">
-                    <p>Sì, le tue immagini e schemi non vengono trasmessi da nessuna parte, vengono elaborati e memorizzati localmente sul tuo dispositivo.</p>
+                    <p>Sì, le tue immagini e schemi non vengono trasmessi da nessuna parte, vengono elaborati e
+                        memorizzati localmente sul tuo dispositivo.</p>
                 </div>
             </div>
 
@@ -194,11 +199,13 @@
             <div class="faq-item" id="ads">
                 <div class="question">Cosa devo fare se non posso guardare gli annunci?</div>
                 <div class="answer">
-                    <p>In questo caso, il contatore delle generazioni si resetterà automaticamente dopo una settimana. Puoi anche resettare il contatore
+                    <p>In questo caso, il contatore delle generazioni si resetterà automaticamente dopo una settimana.
+                        Puoi anche resettare il contatore
                         eliminando l'applicazione e reinstallandola, ma in questo caso perderai tutti i tuoi
                         schemi salvati.</p>
                     <div class="contact-note">
-                        💡 <strong>Se nel tuo paese ci sono difficoltà con la visualizzazione della pubblicità integrata</strong> -
+                        💡 <strong>Se nel tuo paese ci sono difficoltà con la visualizzazione della pubblicità
+                            integrata</strong> -
                         contatta lo sviluppatore e descrivi il tuo problema.
                     </div>
                 </div>
@@ -215,7 +222,8 @@
                 <div class="question">Come posso supportare il progetto?</div>
                 <div class="answer">
                     <p>Il miglior supporto per il progetto è parlarne ai tuoi conoscenti.
-                        E assicurati di inviarci i tuoi lavori finiti alla nostra email - questo ci darà ancora più motivazione per lo sviluppo!</p>
+                        E assicurati di inviarci i tuoi lavori finiti alla nostra email - questo ci darà ancora più
+                        motivazione per lo sviluppo!</p>
                 </div>
             </div>
 
@@ -228,14 +236,19 @@
                 const answer = question.nextElementSibling;
                 const isVisible = answer.style.display === 'block';
 
+                document.querySelectorAll('.question').forEach(q => {
+                    q.classList.remove('active');
+                    q.style.background = '#f8f9fa';
+                    q.style.color = '#2c3e50';
+                });
+
                 document.querySelectorAll('.answer').forEach(a => {
                     a.style.display = 'none';
-                    a.previousElementSibling.style.background = '#f8f9fa';
-                    a.previousElementSibling.style.color = '#2c3e50';
                 });
 
                 if (!isVisible) {
                     answer.style.display = 'block';
+                    question.classList.add('active');
                     question.style.background = '#667eea';
                     question.style.color = 'white';
                 }
