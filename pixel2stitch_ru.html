@@ -64,6 +64,83 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .screenshots-carousel {
+            margin: 20px 0;
+            padding: 20px 0;
+        }
+
+        .screenshots-carousel h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-btn.prev {
+            left: 4px;
+        }
+
+        .carousel-btn.next {
+            right: 4px;
+        }
+
+        .donate-button {
+            background-color: #ffdd00;
+            color: #000;
+            padding: 0.6em 4em;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .donate-button:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -72,11 +149,12 @@
     <!-- Header -->
     <header>
         <h1>pixel2stitch iOS App</h1>
-        <h3>Приложение для создания схем для вышивки из фотографий</h3>
+        <h2>Создание схем для вышивки из фотографий</h2>
     </header>
 
     <!-- Main content -->
     <div class="container">
+        <br>
         <div class="image-container">
             <img src="img/logo_pixel2stitch.png" alt="App Screenshot">
         </div>
@@ -85,9 +163,9 @@
             <img src="https://toolbox.marketingtools.apple.com/api/assets/featured-content/apps/badges/badge-2/en-us.svg"
                 alt="Download on the App Store" style="height: 50px;">
         </a>
-
         <div class="description">
             <p>
+                <br>
                 Создавай свои неповторимые схемы и выводи своё хобби на новый уровень!<br>
                 Просто загрузи изображение любым доступным способом, настрой параметры и получи результат мгновенно.<br>
                 Сохраняй все свои схемы, отслеживай суммарный прогресс и отдельно по каждому цвету.<br>
@@ -96,6 +174,47 @@
                 А4.<br>
             </p>
         </div>
+
+        <div class="screenshots-carousel">
+            <h3>Скриншоты приложения</h3>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="img/ru01.jpg" alt="Скриншот приложения 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/ru02.jpg" alt="Скриншот приложения 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/ru03.jpg" alt="Скриншот приложения 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/ru04.jpg" alt="Скриншот приложения 4">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/05.jpg" alt="Скриншот приложения 4">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/06.jpg" alt="Скриншот приложения 4">
+                    </div>
+                </div>
+                <button class="carousel-btn prev">‹</button>
+                <button class="carousel-btn next">›</button>
+            </div>
+        </div>
+
+        <br>
+        <h3>Поддержка проекта</h3>
+        <p>
+            <a href="https://pay.cloudtips.ru/p/9aeff665" target="_blank" rel="noopener noreferrer"
+                class="donate-button">
+                ☕ Поддержать
+            </a>
+        </p>
+        <p>
+            <iframe src="https://yoomoney.ru/quickpay/fundraise/button?billNumber=1DOQB0IJS98.251101&" width="256" height="50"
+            frameborder="0" allowtransparency="true" scrolling="no"></iframe>​
+        </p>
 
         <footer>
             <p>
@@ -110,6 +229,31 @@
             <p><a href="index.html">2025 Pavel Grigorev</a></p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.carousel-btn.next');
+            const prevButton = document.querySelector('.carousel-btn.prev');
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextButton.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+        });
+    </script>
 
 </body>
 
