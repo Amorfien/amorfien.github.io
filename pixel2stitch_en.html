@@ -64,6 +64,190 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .screenshots-carousel {
+            margin: 20px 0;
+            padding: 20px 0;
+        }
+
+        .screenshots-carousel h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-btn.prev {
+            left: 4px;
+        }
+
+        .carousel-btn.next {
+            right: 4px;
+        }
+
+        .donate-section {
+            margin: 50px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .donate-section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .donate-section>p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .crypto-wallets {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wallet-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .wallet-item:hover {
+            border-color: #3498db;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+        }
+
+        .wallet-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+
+        .crypto-icon {
+            font-size: 24px;
+        }
+
+        .wallet-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .wallet-address {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .wallet-address:hover {
+            background: #e9ecef;
+        }
+
+        .wallet-address code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #2c3e50;
+            word-break: break-all;
+            user-select: all;
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            background: #2c3e50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .wallet-address:hover .copy-hint {
+            opacity: 1;
+        }
+
+        .donate-note {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .donate-section {
+                margin: 30px 0;
+                padding: 20px;
+            }
+
+            .wallet-address code {
+                font-size: 12px;
+            }
+        }
+
+        .network-note {
+            font-size: 12px;
+            color: #95a5a6;
+            margin-top: 8px;
+            margin-bottom: 0;
+            font-style: italic;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -72,11 +256,12 @@
     <!-- Header -->
     <header>
         <h1>pixel2stitch iOS App</h1>
-        <h3>Stitch Your Photos: Scheme Maker</h3>
+        <h2>Stitch Your Photos: Scheme Maker</h2>
     </header>
 
     <!-- Main content -->
     <div class="container">
+        <br>
         <div class="image-container">
             <img src="img/logo_pixel2stitch.png" alt="App Screenshot">
         </div>
@@ -88,12 +273,76 @@
 
         <div class="description">
             <p>
+                <br>
                 Create Unique Patterns & Elevate Your Hobby!<br>
                 Upload any image, customize settings, get instant results<br>
                 Save patterns, track progress by color and overall<br>
                 Get detailed thread information and quantities<br>
                 Export to PDF and print on multiple A4 pages<br>
             </p>
+        </div>
+
+        <div class="screenshots-carousel">
+            <h3>App Screenshots</h3>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="img/en01.jpg" alt="App Screenshot 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/en02.jpg" alt="App Screenshot 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/en03.jpg" alt="App Screenshot 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/en04.jpg" alt="App Screenshot 4">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/05.jpg" alt="App Screenshot 5">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/06.jpg" alt="App Screenshot 6">
+                    </div>
+                </div>
+                <button class="carousel-btn prev">‹</button>
+                <button class="carousel-btn next">›</button>
+            </div>
+        </div>
+
+        <!-- Donate Section -->
+        <div class="donate-section">
+            <h2>Donate</h2>
+            <p>If you enjoy using pixel2stitch, consider supporting its development</p>
+
+            <div class="crypto-wallets">
+                <!-- Bitcoin -->
+                <div class="wallet-item">
+                    <div class="wallet-header">
+                        <span class="crypto-icon">₿</span>
+                        <h3>Bitcoin (BTC)</h3>
+                    </div>
+                    <div class="wallet-address" onclick="copyAddress(this)">
+                        <code>bc1q63nkv4qhxu489ljwrcvutapu6tyrpa4yhn3k0s</code>
+                        <span class="copy-hint">Tap to copy</span>
+                    </div>
+                </div>
+
+                <!-- TON -->
+                <div class="wallet-item">
+                    <div class="wallet-header">
+                        <span class="crypto-icon">💎</span>
+                        <h3>TON & USDT (TON Network)</h3>
+                    </div>
+                    <div class="wallet-address" onclick="copyAddress(this)">
+                        <code>UQC84voVPiv4q_kQzh7dEaGj7OojwEWlpwzQjGWItuduCbYV</code>
+                        <span class="copy-hint">Tap to copy</span>
+                    </div>
+                    <p class="network-note">Same address for both TON and USDT on TON network</p>
+                </div>
+            </div>
+
+            <p class="donate-note">Thank you for your support! ❤️</p>
         </div>
 
         <footer>
@@ -109,6 +358,19 @@
             <p><a href="index.html">2025 Pavel Grigorev</a></p>
         </footer>
     </div>
+
+    <script>
+        function copyAddress(element) {
+            const address = element.querySelector('code').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                const originalHint = element.querySelector('.copy-hint').textContent;
+                element.querySelector('.copy-hint').textContent = 'Copied!';
+                setTimeout(() => {
+                    element.querySelector('.copy-hint').textContent = originalHint;
+                }, 2000);
+            });
+        }
+    </script>
 
 </body>
 
