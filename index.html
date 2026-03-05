@@ -259,6 +259,10 @@
                     <img src="img/logo_pixel2stitch.png" alt="pixel2stitch" class="app-icon">
                     <div class="app-name">pixel2stitch</div>
                 </a>
+                <a href="wallpendar_en.html" class="app-link" id="wallpendar-link">
+                    <img src="img/logo_wallpendar.jpg" alt="Wallpendar" class="app-icon">
+                    <div class="app-name">Wallpendar</div>
+                </a>
             </div>
         </div>
     </div>
@@ -269,7 +273,8 @@
             const nameElement = document.querySelector('.name');
             const appLinks = {
                 actograph: document.getElementById('actograph-link'),
-                pixel2stitch: document.getElementById('pixel2stitch-link')
+                pixel2stitch: document.getElementById('pixel2stitch-link'),
+                wallpendar: document.getElementById('wallpendar-link'),
             };
 
             // Тексты для разных языков
@@ -282,7 +287,8 @@
                     myApps: "My Applications",
                     viewApps: "View all my apps",
                     actograph: "ActoGraph",
-                    pixel2stitch: "pixel2stitch"
+                    pixel2stitch: "pixel2stitch",
+                    wallpendar: "Wallpendar"
                 },
                 ru: {
                     name: "Павел Григорьев",
@@ -292,7 +298,8 @@
                     myApps: "Мои приложения",
                     viewApps: "Все мои приложения",
                     actograph: "ActoGraph",
-                    pixel2stitch: "pixel2stitch"
+                    pixel2stitch: "pixel2stitch",
+                    wallpendar: "Wallpendar"
                 }
             };
 
@@ -315,10 +322,12 @@
                 // Обновляем названия приложений
                 document.querySelector('#actograph-link .app-name').textContent = t.actograph;
                 document.querySelector('#pixel2stitch-link .app-name').textContent = t.pixel2stitch;
+                document.querySelector('#wallpendar-link .app-name').textContent = t.wallpendar;
 
                 // Обновляем ссылки на лендинги
                 appLinks.actograph.href = `actograph_${lang}.html`;
                 appLinks.pixel2stitch.href = `pixel2stitch_${lang}.html`;
+                appLinks.wallpendar.href = `wallpendar_${lang}.html`;
             }
 
             // Обработчики событий для кнопок переключения языка
