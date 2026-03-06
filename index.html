@@ -235,15 +235,31 @@
             <div class="contact-item">
                 <div class="icon">✉️</div>
                 <div class="contact-text">
-                    <strong>Email:</strong> <a href="mailto:amorfien@gmail.com">amorfien@gmail.com</a>
+                    <strong class="contact-label" data-label="email">Email:</strong>
+                    <a href="mailto:amorfien@gmail.com">amorfien@gmail.com</a>
+                </div>
+
+                <div class="icon">🔗</div>
+                <div class="contact-text">
+                    <strong class="contact-label" data-label="linkedin">LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/pavel-grigorev-ios" target="_blank"
+                        class="linkedin-link">Contact
+                        me</a>
                 </div>
             </div>
 
             <div class="contact-item">
                 <div class="icon">📱</div>
                 <div class="contact-text">
-                    <strong>AppStore:</strong> <a href="https://apps.apple.com/us/developer/pavel-grigorev/id1801553182"
-                        target="_blank">View all my apps</a>
+                    <strong class="contact-label" data-label="appstore">AppStore:</strong>
+                    <a href="https://apps.apple.com/us/developer/pavel-grigorev/id1801553182" target="_blank"
+                        class="appstore-link">View all my apps</a>
+                </div>
+
+                <div class="icon">🐈‍⬛</div>
+                <div class="contact-text">
+                    <strong class="contact-label" data-label="github">GitHub:</strong>
+                    <a href="https://github.com/Amorfien" target="_blank" class="github-link">My repositories</a>
                 </div>
             </div>
         </div>
@@ -251,13 +267,13 @@
         <div class="apps-section">
             <h2 class="section-title">My Applications</h2>
             <div class="app-links">
-                <a href="actograph_en.html" class="app-link" id="actograph-link">
-                    <img src="img/logo_actograph.png" alt="Actograph" class="app-icon">
-                    <div class="app-name">actograph</div>
-                </a>
                 <a href="pixel2stitch_en.html" class="app-link" id="pixel2stitch-link">
                     <img src="img/logo_pixel2stitch.png" alt="pixel2stitch" class="app-icon">
                     <div class="app-name">pixel2stitch</div>
+                </a>
+                <a href="actograph_en.html" class="app-link" id="actograph-link">
+                    <img src="img/logo_actograph.png" alt="Actograph" class="app-icon">
+                    <div class="app-name">actograph</div>
                 </a>
                 <a href="wallpendar_en.html" class="app-link" id="wallpendar-link">
                     <img src="img/logo_wallpendar.jpg" alt="Wallpendar" class="app-icon">
@@ -286,6 +302,8 @@
                     appstore: "AppStore:",
                     myApps: "My Applications",
                     viewApps: "View all my apps",
+                    contactMe: "Contact me",
+                    myRepos: "My repositories",
                     actograph: "ActoGraph",
                     pixel2stitch: "pixel2stitch",
                     wallpendar: "Wallpendar"
@@ -297,6 +315,8 @@
                     appstore: "AppStore:",
                     myApps: "Мои приложения",
                     viewApps: "Все мои приложения",
+                    contactMe: "Связаться со мной",
+                    myRepos: "Мои репозитории",
                     actograph: "ActoGraph",
                     pixel2stitch: "pixel2stitch",
                     wallpendar: "Wallpendar"
@@ -314,10 +334,22 @@
                 const t = translations[lang];
                 nameElement.textContent = t.name;
                 document.querySelector('.title').textContent = t.title;
-                document.querySelector('.contact-item:nth-child(1) strong').textContent = t.email;
-                document.querySelector('.contact-item:nth-child(2) strong').textContent = t.appstore;
                 document.querySelector('.section-title').textContent = t.myApps;
-                document.querySelector('.contact-item:nth-child(2) a').textContent = t.viewApps;
+
+                document.querySelectorAll('.contact-label').forEach(label => {
+                    const labelType = label.dataset.label;
+                    if (t[labelType]) {
+                        label.textContent = t[labelType];
+                    }
+                });
+
+                // document.querySelector('.contact-item:nth-child(1) strong').textContent = t.email;
+                // document.querySelector('.contact-item:nth-child(2) strong').textContent = t.appstore;
+                document.querySelector('.linkedin-link').textContent = t.contactMe;
+                document.querySelector('.appstore-link').textContent = t.viewApps;
+                document.querySelector('.github-link').textContent = t.myRepos;
+
+                // document.querySelector('.contact-item:nth-child(2) a').textContent = t.viewApps;
 
                 // Обновляем названия приложений
                 document.querySelector('#actograph-link .app-name').textContent = t.actograph;
