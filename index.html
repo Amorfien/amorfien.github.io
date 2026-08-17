@@ -267,7 +267,7 @@
         <div class="apps-section">
             <h2 class="section-title">My Applications</h2>
             <div class="app-links">
-                <a href="pixel2stitch_en.html" class="app-link" id="pixel2stitch-link">
+                <a href="https://pixel2stitch.github.io" class="app-link" id="pixel2stitch-link">
                     <img src="img/logo_pixel2stitch.png" alt="pixel2stitch" class="app-icon">
                     <div class="app-name">pixel2stitch</div>
                 </a>
@@ -289,7 +289,6 @@
             const nameElement = document.querySelector('.name');
             const appLinks = {
                 actograph: document.getElementById('actograph-link'),
-                pixel2stitch: document.getElementById('pixel2stitch-link'),
                 wallpendar: document.getElementById('wallpendar-link'),
             };
 
@@ -358,7 +357,6 @@
 
                 // Обновляем ссылки на лендинги
                 appLinks.actograph.href = `actograph_${lang}.html`;
-                appLinks.pixel2stitch.href = `pixel2stitch_${lang}.html`;
                 appLinks.wallpendar.href = `wallpendar_${lang}.html`;
             }
 
